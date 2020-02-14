@@ -33,9 +33,9 @@ def cityreader(cities=[]):
   # `cities` list
     with open('cities.csv', 'r') as csvfile:
       reader = csv.reader(csvfile)
-      next(reader)
+      next(reader) # skips first line
       for row in reader:
-            #make a new city from the contents
+        #make a new city object from the contents and append it to list
         cities.append(City(str(row[0]), float(row[3]), float(row[4])))
     return cities
 

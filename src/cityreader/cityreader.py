@@ -42,8 +42,8 @@ def cityreader(cities=[]):
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
 
 # STRETCH GOAL!
 #
@@ -75,13 +75,36 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+group_1 = input('Enter lat1 and lon1: ').split()
+lat_1 = int(group_1[0])
+lon_1 = int(group_1[1])
+
+group_2 = input('Enter lat2 and lon2:').split()
+lat_2 = int(group_2[0])
+lon_2 = int(group_2[1])
+
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
+  for c in cities:
+    print(type(c.lat))
+    print (lat1)
+    print (c.lat)
+    if int(c.lat) in range(lat2, lat1) and int(c.lon) in range(int(lon2), int(lon1)):
+      within.append(c)
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
-
+  print(within)
   return within
+
+cityreader_stretch(lat_1, lon_1, lat_2, lon_2, cities)
+
+'''
+if both city latitudes are within the range of the two supplied by user, check
+if both city longitudes are within the range supplied by user, check
+
+'''
